@@ -1,45 +1,77 @@
 import { motion } from 'framer-motion';
+import { Star } from 'lucide-react';
 
-const quotes = [
+const reviews = [
   {
-    name: 'Alex M.',
-    role: 'Quant Trader',
-    quote: 'InfraTrader’s momentum stack outperformed my desk model the first week. Clean risk, tight execution.',
+    name: 'Ava K.',
+    role: 'Quant PM',
+    quote: 'The consistency is what stands out — smooth curves, low heat. Exactly what we wanted.',
   },
   {
-    name: 'Priya K.',
-    role: 'Crypto Fund PM',
-    quote: 'The strategy signals are razor sharp. The transparency and tooling are a level above.',
+    name: 'Marco T.',
+    role: 'Crypto Desk Lead',
+    quote: 'Clean execution and robust filters. Drawdown control is best-in-class.',
   },
   {
-    name: 'Diego R.',
-    role: 'Algo Researcher',
-    quote: 'Backtests matched my shadow fills within 0.3%. That accuracy builds real trust.',
+    name: 'Serena L.',
+    role: 'Investor',
+    quote: 'Finally a premium product that feels premium. The experience matches the results.',
+  },
+  {
+    name: 'Noah R.',
+    role: 'Algo Trader',
+    quote: 'Latency-tolerant logic that still finds edges. Strong engineering.',
+  },
+  {
+    name: 'Iris M.',
+    role: 'Research',
+    quote: 'Clear, concise reporting. Great for stakeholder updates.',
+  },
+  {
+    name: 'Daniel P.',
+    role: 'Fund Ops',
+    quote: 'Onboarding and support were fast and smart. Worth the switch.',
   },
 ];
 
 export default function Reviews() {
   return (
-    <section id="reviews" className="relative w-full bg-[#060712] py-24 text-white">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(217,70,239,0.06),transparent_60%)]" />
-      <div className="relative mx-auto max-w-7xl px-6">
-        <div className="mb-10">
-          <h2 className="text-3xl font-bold" style={{ fontFamily: 'Orbitron, Inter' }}>Reviews</h2>
-          <p className="mt-2 text-white/70" style={{ fontFamily: 'Inter' }}>Real feedback from operators who demand results.</p>
-        </div>
-        <div className="grid gap-6 md:grid-cols-3">
-          {quotes.map((q, i) => (
-            <motion.figure key={q.name} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.55, delay: i * 0.05 }} className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur">
-              <div className="absolute -inset-px rounded-2xl opacity-30 blur transition group-hover:opacity-60" style={{ background: 'linear-gradient(120deg, rgba(56,189,248,0.25), rgba(217,70,239,0.25))' }} />
-              <blockquote className="relative text-white/85" style={{ fontFamily: 'Inter' }}>
-                “{q.quote}”
-              </blockquote>
-              <figcaption className="relative mt-4 text-sm text-white/60">
-                <span className="font-medium text-white/90">{q.name}</span> — {q.role}
-              </figcaption>
-            </motion.figure>
-          ))}
-        </div>
+    <section id="reviews" className="relative mx-auto max-w-7xl px-6 py-20">
+      <motion.h2
+        initial={{ opacity: 0, y: 10 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.4 }}
+        transition={{ duration: 0.6 }}
+        className="text-2xl font-semibold tracking-tight text-white sm:text-3xl"
+      >
+        Reviews
+      </motion.h2>
+      <p className="mt-2 max-w-2xl text-white/70">A growing set of voices from desks and funds using InfraTrader.</p>
+
+      <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {reviews.map((r, idx) => (
+          <motion.div
+            key={r.name}
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ delay: idx * 0.05, duration: 0.5 }}
+            className="group relative rounded-2xl border border-white/10 bg-white/[0.04] p-5 backdrop-blur-md"
+          >
+            <div className="mb-3 flex items-center gap-1 text-rose-300">
+              {Array.from({ length: 5 }).map((_, i) => (
+                <Star key={i} size={16} className="fill-rose-400/90 text-rose-400" />
+              ))}
+            </div>
+            <p className="text-sm text-white/80">“{r.quote}”</p>
+            <div className="mt-4 flex items-center justify-between text-white/70">
+              <span className="text-sm font-medium text-white">{r.name}</span>
+              <span className="text-xs">{r.role}</span>
+            </div>
+            <div className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-white/10 group-hover:ring-rose-400/40" />
+            <div className="pointer-events-none absolute -inset-px -z-[0] rounded-2xl bg-gradient-to-r from-rose-500/0 via-rose-500/15 to-orange-400/0 opacity-0 blur-xl transition-opacity duration-500 group-hover:opacity-100" />
+          </motion.div>
+        ))}
       </div>
     </section>
   );
