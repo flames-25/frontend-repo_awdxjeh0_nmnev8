@@ -1,28 +1,31 @@
-import { useState } from 'react'
+import NavBar from './components/NavBar.jsx';
+import Hero3D from './components/Hero3D.jsx';
+import MarketsCharts from './components/MarketsCharts.jsx';
+import Strategies from './components/Strategies.jsx';
+import PricingContact from './components/PricingContact.jsx';
 
-function App() {
-  const [count, setCount] = useState(0)
-
+export default function App() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-lg">
-        <h1 className="text-3xl font-bold text-gray-800 mb-4">
-          Vibe Coding Platform
-        </h1>
-        <p className="text-gray-600 mb-6">
-          Your AI-powered development environment
-        </p>
-        <div className="text-center">
-          <button
-            onClick={() => setCount(count + 1)}
-            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
-          >
-            Count is {count}
-          </button>
-        </div>
+    <div className="min-h-screen w-full scroll-smooth bg-[#04050a]">
+      {/* Global neon background accents */}
+      <div className="pointer-events-none fixed inset-0 -z-0">
+        <div className="absolute inset-0 bg-[radial-gradient(1200px_600px_at_10%_10%,rgba(56,189,248,0.08),transparent_60%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(1200px_600px_at_90%_90%,rgba(217,70,239,0.06),transparent_60%)]" />
       </div>
-    </div>
-  )
-}
 
-export default App
+      <NavBar />
+      <main className="relative">
+        <Hero3D />
+        <MarketsCharts />
+        <Strategies />
+        <PricingContact />
+      </main>
+
+      <footer className="relative border-t border-white/10 bg-[#05060b] py-10 text-center text-white/60">
+        <div className="mx-auto max-w-7xl px-6">
+          <p style={{ fontFamily: 'Inter, ui-sans-serif' }}>© {new Date().getFullYear()} NEONX — Elite Crypto Intelligence</p>
+        </div>
+      </footer>
+    </div>
+  );
+}
