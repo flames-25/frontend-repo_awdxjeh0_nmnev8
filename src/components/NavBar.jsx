@@ -10,6 +10,7 @@ export default function NavBar() {
       el.style.background = scrolled ? 'rgba(2,6,12,0.6)' : 'transparent';
       el.style.boxShadow = scrolled ? '0 10px 40px rgba(56,189,248,0.08)' : 'none';
       el.style.backdropFilter = scrolled ? 'blur(10px)' : 'none';
+      el.style.borderBottom = scrolled ? '1px solid rgba(255,255,255,0.08)' : '1px solid transparent';
     };
     window.addEventListener('scroll', onScroll);
     return () => window.removeEventListener('scroll', onScroll);
@@ -17,9 +18,10 @@ export default function NavBar() {
 
   const items = [
     { href: '#home', label: 'Home' },
-    { href: '#markets', label: 'Live Markets' },
     { href: '#strategies', label: 'Strategies' },
+    { href: '#performance', label: 'Performance' },
     { href: '#pricing', label: 'Pricing' },
+    { href: '#reviews', label: 'Reviews' },
     { href: '#contact', label: 'Contact' },
   ];
 
@@ -28,7 +30,7 @@ export default function NavBar() {
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
         <a href="#home" className="group inline-flex items-center gap-2">
           <div className="h-3 w-3 rounded-full bg-cyan-400 shadow-[0_0_14px_6px_rgba(56,189,248,0.5)]" />
-          <span className="font-semibold tracking-widest text-white" style={{ fontFamily: 'Orbitron, Inter' }}>NEONX</span>
+          <span className="font-semibold tracking-widest text-white" style={{ fontFamily: 'Orbitron, Inter' }}>InfraTrader</span>
         </a>
         <nav className="hidden items-center gap-6 md:flex">
           {items.map((it) => (

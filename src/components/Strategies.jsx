@@ -2,16 +2,24 @@ import { motion } from 'framer-motion';
 
 const cards = [
   {
-    title: 'Quant Momentum',
-    desc: 'Multi-timeframe momentum with adaptive volatility filters and dynamic risk parity.',
+    title: 'Momentum Core',
+    desc: 'Multi-timeframe momentum with adaptive volatility gates and regime awareness.',
+    tag: 'Trend-following',
   },
   {
-    title: 'Arbitrage Mesh',
-    desc: 'Cross-venue latency scouting with spread capture and liquidity-aware routing.',
+    title: 'Arb Matrix',
+    desc: 'Cross-venue micro-latency mapping, spread capture, liquidity-aware routing.',
+    tag: 'Arbitrage',
   },
   {
-    title: 'Mean Reversion AI',
-    desc: 'Regime-switching mean reversion with anomaly detection and ML signal stacking.',
+    title: 'Mean Revert X',
+    desc: 'Regime-switching MR with anomaly detection and ML ensembles for entries.',
+    tag: 'Reversion',
+  },
+  {
+    title: 'Breakout Pulse',
+    desc: 'Volatility breakout scanner with false-break filtering and time-of-day bias.',
+    tag: 'Volatility',
   },
 ];
 
@@ -23,11 +31,11 @@ export default function Strategies() {
         <div className="mb-10">
           <h2 className="text-3xl font-bold" style={{ fontFamily: 'Orbitron, Inter' }}>Strategies</h2>
           <p className="mt-2 max-w-2xl text-white/70" style={{ fontFamily: 'Inter' }}>
-            Engineered for precision with glowing glass panels and subtle motion.
+            Precision-built crypto strategies with transparent performance and controlled risk.
           </p>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-3">
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
           {cards.map((c, idx) => (
             <motion.div
               key={c.title}
@@ -40,9 +48,10 @@ export default function Strategies() {
             >
               <div className="absolute -inset-px rounded-2xl opacity-40 blur transition group-hover:opacity-70" style={{ background: 'linear-gradient(120deg, rgba(56,189,248,0.25), rgba(217,70,239,0.25))' }} />
               <div className="relative">
+                <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-cyan-400/30 bg-cyan-400/10 px-3 py-1 text-[11px] text-cyan-200">{c.tag}</div>
                 <h3 className="text-lg font-semibold">{c.title}</h3>
                 <p className="mt-2 text-sm text-white/70" style={{ fontFamily: 'Inter' }}>{c.desc}</p>
-                <div className="mt-6 inline-flex items-center gap-2 rounded-full border border-cyan-400/30 bg-cyan-400/10 px-3 py-1 text-xs text-cyan-200">View playbook</div>
+                <div className="mt-6 inline-flex items-center gap-2 rounded-full border border-fuchsia-400/30 bg-fuchsia-400/10 px-3 py-1 text-xs text-fuchsia-200">View details</div>
               </div>
             </motion.div>
           ))}

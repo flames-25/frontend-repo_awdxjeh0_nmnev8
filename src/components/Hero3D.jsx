@@ -12,7 +12,7 @@ export default function Hero3D() {
       const link = document.createElement('link');
       link.id = id;
       link.rel = 'stylesheet';
-      link.href = 'https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&display=swap';
+      link.href = 'https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800&display=swap';
       document.head.appendChild(link);
     }
   }, []);
@@ -31,19 +31,18 @@ export default function Hero3D() {
     };
     window.addEventListener('resize', onResize);
 
-    const particles = Array.from({ length: 80 }).map(() => ({
+    const particles = Array.from({ length: 90 }).map(() => ({
       x: Math.random() * w,
       y: Math.random() * h,
-      r: Math.random() * 1.8 + 0.6,
-      vx: (Math.random() - 0.5) * 0.6,
-      vy: (Math.random() - 0.5) * 0.6,
-      c: Math.random() > 0.5 ? 'rgba(59, 130, 246, 0.5)' : 'rgba(168, 85, 247, 0.5)', // cyan/purple
+      r: Math.random() * 1.6 + 0.6,
+      vx: (Math.random() - 0.5) * 0.5,
+      vy: (Math.random() - 0.5) * 0.5,
+      c: Math.random() > 0.5 ? 'rgba(56, 189, 248, 0.5)' : 'rgba(168, 85, 247, 0.5)',
     }));
 
     let raf;
     const loop = () => {
       ctx.clearRect(0, 0, w, h);
-      // subtle gradient background glow
       const grad = ctx.createRadialGradient(w * 0.5, h * 0.5, 0, w * 0.5, h * 0.5, Math.max(w, h) * 0.6);
       grad.addColorStop(0, 'rgba(56, 189, 248, 0.06)');
       grad.addColorStop(1, 'rgba(147, 51, 234, 0.02)');
@@ -72,26 +71,26 @@ export default function Hero3D() {
     };
   }, []);
 
-  const headline = 'Next‑Gen Crypto Intelligence';
-  const sub = 'Cinematic analytics, live markets, and immersive 3D — built for elite traders.';
+  const headline = 'InfraTrader';
+  const sub = 'Institutional-grade crypto strategies — simplified. Proven edges, clear risk, automated execution.';
 
   return (
     <section id="home" className="relative min-h-[92vh] w-full overflow-hidden bg-[#07090e] text-white">
-      {/* 3D Spline Scene */}
+      {/* 3D Spline Scene (full-width cover) */}
       <div className="absolute inset-0">
         <Spline
-          scene="https://prod.spline.design/N8g2VNcx8Rycz93J/scene.splinecode"
+          scene="https://prod.spline.design/44zrIZf-iQZhbQNQ/scene.splinecode"
           style={{ width: '100%', height: '100%' }}
         />
         {/* Gradient sheen overlay (non-blocking) */}
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(56,189,248,0.15),transparent_60%)]" />
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(56,189,248,0.18),transparent_60%)]" />
       </div>
 
       {/* Particles layer */}
       <canvas ref={particlesRef} className="pointer-events-none absolute inset-0" />
 
       {/* Content */}
-      <div className="relative z-10 mx-auto flex max-w-7xl flex-col items-center px-6 pt-28 pb-24">
+      <div className="relative z-10 mx-auto flex max-w-5xl flex-col items-center px-6 pt-36 pb-28 text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -100,7 +99,7 @@ export default function Hero3D() {
           style={{ boxShadow: '0 0 30px rgba(56,189,248,0.15)' }}
         >
           <div className="h-2 w-2 animate-pulse rounded-full bg-cyan-400 shadow-[0_0_20px_3px_rgba(56,189,248,0.6)]" />
-          <span className="text-xs uppercase tracking-[0.25em] text-cyan-300/90">Futuristic Finance</span>
+          <span className="text-xs uppercase tracking-[0.25em] text-cyan-300/90">Crypto Strategy Suite</span>
         </motion.div>
 
         <motion.h1
@@ -127,7 +126,7 @@ export default function Hero3D() {
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.3 }}
-          className="mt-6 max-w-2xl text-center text-white/80"
+          className="mt-5 max-w-2xl text-center text-white/85 text-lg"
           style={{ fontFamily: 'Inter, ui-sans-serif, system-ui' }}
         >
           {sub}
@@ -139,12 +138,12 @@ export default function Hero3D() {
           transition={{ duration: 0.6, delay: 0.5 }}
           className="mt-10 flex flex-wrap items-center justify-center gap-4"
         >
-          <a href="#markets" className="group relative overflow-hidden rounded-xl border border-cyan-500/40 bg-cyan-500/10 px-6 py-3 text-cyan-200 backdrop-blur transition hover:bg-cyan-500/20" style={{ boxShadow: '0 0 40px rgba(56,189,248,0.15)' }}>
-            <span className="relative z-10">Live Markets</span>
+          <a href="#strategies" className="group relative overflow-hidden rounded-xl border border-cyan-500/40 bg-cyan-500/10 px-6 py-3 text-cyan-200 backdrop-blur transition hover:bg-cyan-500/20" style={{ boxShadow: '0 0 40px rgba(56,189,248,0.15)' }}>
+            <span className="relative z-10">View Strategies</span>
             <span className="pointer-events-none absolute inset-0 translate-y-full bg-gradient-to-t from-cyan-400/30 to-transparent transition-transform duration-500 group-hover:translate-y-0" />
           </a>
-          <a href="#strategies" className="group relative overflow-hidden rounded-xl border border-fuchsia-500/40 bg-fuchsia-500/10 px-6 py-3 text-fuchsia-200 backdrop-blur transition hover:bg-fuchsia-500/20" style={{ boxShadow: '0 0 40px rgba(217,70,239,0.15)' }}>
-            <span className="relative z-10">Strategies</span>
+          <a href="#performance" className="group relative overflow-hidden rounded-xl border border-fuchsia-500/40 bg-fuchsia-500/10 px-6 py-3 text-fuchsia-200 backdrop-blur transition hover:bg-fuchsia-500/20" style={{ boxShadow: '0 0 40px rgba(217,70,239,0.15)' }}>
+            <span className="relative z-10">See Performance</span>
             <span className="pointer-events-none absolute inset-0 translate-y-full bg-gradient-to-t from-fuchsia-400/30 to-transparent transition-transform duration-500 group-hover:translate-y-0" />
           </a>
         </motion.div>

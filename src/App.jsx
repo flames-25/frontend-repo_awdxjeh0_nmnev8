@@ -1,8 +1,9 @@
 import NavBar from './components/NavBar.jsx';
 import Hero3D from './components/Hero3D.jsx';
-import MarketsCharts from './components/MarketsCharts.jsx';
 import Strategies from './components/Strategies.jsx';
+import Performance from './components/Performance.jsx';
 import PricingContact from './components/PricingContact.jsx';
+import Reviews from './components/Reviews.jsx';
 
 export default function App() {
   return (
@@ -16,14 +17,15 @@ export default function App() {
       <NavBar />
       <main className="relative">
         <Hero3D />
-        <MarketsCharts />
         <Strategies />
+        <Performance />
         <PricingContact />
+        <Reviews />
       </main>
 
       <footer className="relative border-t border-white/10 bg-[#05060b] py-10 text-center text-white/60">
         <div className="mx-auto max-w-7xl px-6">
-          <p style={{ fontFamily: 'Inter, ui-sans-serif' }}>© {new Date().getFullYear()} NEONX — Elite Crypto Intelligence</p>
+          <p style={{ fontFamily: 'Inter, ui-sans-serif' }}>© {new Date().getFullYear()} InfraTrader — Elite Crypto Intelligence</p>
         </div>
       </footer>
     </div>
